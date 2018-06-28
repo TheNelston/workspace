@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 #By nmu
 #This program outputs the minimum/maximum value, mean, median, mode, and range of a command line input of numbers
-import math
 import sys
 
 def min_func(s):
@@ -36,7 +35,7 @@ def mode_func(s):
 		occurlist.append(str(s.count(number)))
 	occurlistones = []
 	for x in occurlist:
-		occurlistones.append(str(int(x)/(int(max(set(occurlist), key=occurlist.count)))))
+		occurlistones.append(str(int(int(x)/(int(max(set(occurlist), key=occurlist.count))))))
 	if "".join(occurlistones) == "1"*len(s[1::]):
 		print("Mode: N/A")
 	else:
