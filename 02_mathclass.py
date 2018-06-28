@@ -3,12 +3,15 @@
 #This program outputs the minimum/maximum value, mean, median, mode, and range of a command line input of numbers
 import math
 import sys
+
 def min_func(s):
 	minval = min(s[1::])
 	print("Min: {}".format(minval))
+
 def max_func(s):
 	maxval = max(s[1::])
 	print("Max: {}".format(maxval))
+
 def mean_func(s):
 	x = []
 	for number in s[1::]:
@@ -17,6 +20,7 @@ def mean_func(s):
 	for element in x:
 		y.append(int("".join(element)))
 	print("Mean: {}".format((sum(y))/(len(y))))
+
 def median_func(s):
 	orderedlist = sorted(s[1::])
 	orderlen = len(orderedlist)
@@ -25,14 +29,19 @@ def median_func(s):
 		print("Median: {}".format(orderedlist[quot]))
 	else:
 		print("Median: {}".format(((int(s[quot]))+(int(s[-quot])))/2.0))
+
 def mode_func(s):
 	occurlist = []
 	for number in s[1::]:
 		occurlist.append(str(s.count(number)))
-	if "".join(occurlist) == "1"*len(s[1::]):
+	occurlistones = []
+	for x in occurlist:
+		occurlistones.append(str(int(x)/(int(max(set(occurlist), key=occurlist.count)))))
+	if "".join(occurlistones) == "1"*len(s[1::]):
 		print("Mode: N/A")
 	else:
 		print("Mode: {}".format(max(set(s), key=s.count)))
+
 def range_func(s):
 	print("Range: {}".format(int(max(s[1::]))-int(min(s[1::]))))
 
