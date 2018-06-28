@@ -18,14 +18,27 @@ def mean_func(s):
 		y.append(int("".join(element)))
 	print("Mean: {}".format((sum(y))/(len(y))))
 def median_func(s):
-	if len(s[1::])%2 == 1:
-		print("Median: {}".format(s[len(((int(s[1::]))-1))/2]))
+	orderedlist = sorted(s[1::])
+	orderlen = len(orderedlist)
+	quot, rem = divmod(orderlen, 2)
+	if rem:
+		print("Median: {}".format(orderedlist[quot]))
 	else:
-		print("")
+		print("Median: {}".format(((int(s[quot]))+(int(s[-quot])))/2.0))
+def mode_func(s):
+	occurlist = []
+	for number in s[1::]:
+		occurlist.append(str(s.count(number)))
+	if "".join(occurlist) == "1"*len(s[1::]):
+		print("Mode: N/A")
+	else:
+		print("Mode: {}".format(max(set(s), key=s.count)))
+
 def main(argv):
 	min_func(argv)
-	max_func(argv)
+	max_func(argv)     
 	mean_func(argv)
 	median_func(argv)
+	mode_func(argv)
 
 main(sys.argv)

@@ -1,10 +1,9 @@
-word = ["R","A","I","N","B","O","W"]
-rainbow = []
-i = 1
-while i < 8:
-    fore = 30 + i
-    form = ";".join([str(1), str(fore), str(40)])
-    letter = '\x1b[{}m {} %s \x1b[0m'.format(form)
-    rainbow.append(letter)
-    i += 1
-print(rainbow)
+s = ["elephant",1,2,3,4,5,6]
+occurlist = []
+for number in s[1::]:
+	occurlist.append(str(s.count(number)))
+
+if "".join(occurlist) == "1"*len(s[1::]):
+	print("no mode")
+else:
+	print("mode!")
