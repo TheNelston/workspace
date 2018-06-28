@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #By nmu
-#This program prints out every other letter capitalized, replaces all capped vowels with *, and checks for balanced parentheses
+#This program outputs the minimum/maximum value, mean, median, mode, and range of a command line input of numbers
 import math
 import sys
 def min_func(s):
@@ -33,6 +33,8 @@ def mode_func(s):
 		print("Mode: N/A")
 	else:
 		print("Mode: {}".format(max(set(s), key=s.count)))
+def range_func(s):
+	print("Range: {}".format(int(max(s[1::]))-int(min(s[1::]))))
 
 def main(argv):
 	min_func(argv)
@@ -40,5 +42,6 @@ def main(argv):
 	mean_func(argv)
 	median_func(argv)
 	mode_func(argv)
+	range_func(argv)
 
 main(sys.argv)
