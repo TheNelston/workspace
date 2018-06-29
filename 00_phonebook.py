@@ -28,6 +28,7 @@ for word in fnoccurcount:
 for name in classmates[1::]:
 	if name in commonfnames:
 		commfnamelnames.append(classmates[(classmates.index(name)+1)])
+testlist = []
 for name in commonfnames:
 	l = []
 	i = 0
@@ -35,9 +36,9 @@ for name in commonfnames:
 		l.append(classmates[classmates.index(name)+1])
 		classmates.remove(classmates[classmates.index(name)])
 		i += 1
-	commfnames.update(dict.fromkeys(l, name))
-for key in commfnames.keys():
-  print(key)
+	fncombos = str(l)
+	#commfnames.update(dict.fromkeys(l, name))
+
 #print(commfnames['Rohan'])
 #print(commfnames)
 #myDict = {}
